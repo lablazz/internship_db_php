@@ -9,7 +9,7 @@
         if (empty($username) || empty($password)) {
             $_SESSION['err'] = "กรุณากรอก username หรือ password";
         } else {
-            $query = "SELECT * FROM user WHERE username = ?";
+            $query = "SELECT * FROM users WHERE username = ?";
             $check_indb = $conn->prepare($query);
             $check_indb->bind_param('s', $username);
             $check_indb->execute();
@@ -21,6 +21,9 @@
                 
                 if ($rows['role'] == 'std') {
                     header('location: ../page/student_dashboard.php');
+                }
+                elseif ($rows['role'] == 'adm') {
+                    header('location: ../page/admin_dashboard.php');
                 }
                 else {
                     header('location: ../index.php');
