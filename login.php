@@ -20,17 +20,17 @@
                 $_SESSION['userdata'] = $rows;
                 
                 if ($rows['role'] == 'std') {
-                    header('location: ../page/student_dashboard.php');
+                    header('location: ./page/student/html/student_dashboard.php');
                 }
                 elseif ($rows['role'] == 'adm') {
-                    header('location: ../page/admin_dashboard.php');
+                    header('location: ./page/admin/html/admin_dashboard.php');
                 }
                 else {
-                    header('location: ../index.php');
+                    header('location: ./index.php');
                 }
             } else {
                 $_SESSION['err'] = 'ไม่พบบัญชีผู้ใช้';
-                header("location: ../index.php");
+                header("location: ./index.php");
             }
         }
     }
